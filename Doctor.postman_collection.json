@@ -1,0 +1,212 @@
+{
+	"info": {
+		"_postman_id": "ddd7bc25-1113-404b-810f-99e430e4f6fa",
+		"name": "Doctor",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15751187"
+	},
+	"item": [
+		{
+			"name": "Status",
+			"item": [
+				{
+					"name": "Get Status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:6099/status",
+							"host": [
+								"localhost"
+							],
+							"port": "6099",
+							"path": [
+								"status"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Doctor",
+			"item": [
+				{
+					"name": "Get Single Doctor",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:6099/doctor/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "6099",
+							"path": [
+								"doctor",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Doctor",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:6099/doctors",
+							"host": [
+								"localhost"
+							],
+							"port": "6099",
+							"path": [
+								"doctors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Single Doctor",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"Charlie\",\n    \"lastName\": \"Char\",\n    \"age\": 56,\n    \"refCode\": \"doc0003\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:6099/doctor",
+							"host": [
+								"localhost"
+							],
+							"port": "6099",
+							"path": [
+								"doctor"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Multiple Doctors",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"firstName\": \"Annie\",\n        \"lastName\": \"Ace\",\n        \"age\": 14,\n        \"refCode\": \"doc0001\"\n    },\n    {\n        \"firstName\": \"Bob\",\n        \"lastName\": \"Blu\",\n        \"age\": 45,\n        \"refCode\": \"doc0002\"\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:6099/doctors",
+							"host": [
+								"localhost"
+							],
+							"port": "6099",
+							"path": [
+								"doctors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Single Doctor",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"Bob\",\n    \"lastName\": \"Blu\",\n    \"age\": 77,\n    \"refCode\": \"doc0002\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:6099/doctor/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "6099",
+							"path": [
+								"doctor",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Single Doctor",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:6099/doctor/:id",
+							"host": [
+								"localhost"
+							],
+							"port": "6099",
+							"path": [
+								"doctor",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add All Doctors",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:6099/doctors",
+							"host": [
+								"localhost"
+							],
+							"port": "6099",
+							"path": [
+								"doctors"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

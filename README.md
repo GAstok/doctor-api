@@ -2,14 +2,17 @@
 
 ## Instructions
 
-To run locally, use `mvn spring-boot:run` (I used port `6099`).
+### Local
+- To run locally, use `mvn spring-boot:run` (I used port `6099`).
 
-To build Docker image, use `docker build --tag doctor-docker .`
-To run in Docker, use `docker run --name doctor -d -p 6099:6099 doctor-docker`.
+### Docker
+- Build Docker image: `docker build --tag doctor-docker .`
+- Run Docker image: `docker run --name doctor -d -p 6099:6099 doctor-docker`.
 
 ## Docs
 
 - Docs can be seen at [http://localhost:6099/swagger-ui/index.html](http://localhost:6099/swagger-ui/index.html).
+- Added `Doctor.postman_collection.json`. This file consist Postman collection for all endpoints (uses port `6099`).
 
 ## Tasks
 
@@ -29,12 +32,13 @@ To run in Docker, use `docker run --name doctor -d -p 6099:6099 doctor-docker`.
 
 ### Development - each task includes developing one unit or integration test.
 1. Create data model (i.e doctor or nurse)
-- Created a doctor data model with following variables:
+- Created a `doctor` data model with following variables:
   - `id`
   - `firstName`
   - `lastName`
   - `age`
   - `refCode`
+  - `deleteTime` (if this is not `NULL`, then entity is considered deleted)
 2. Create one of CRUD based controller with input/output JSON (i.e use your created data model)
 - Created `DoctorController` that has various endpoints to add, edit, delete and list doctor data.
 - Took some time to create and test that everything works. ~3-4h
