@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 public class DoctorController {
 
@@ -25,6 +27,7 @@ public class DoctorController {
     public DoctorController(DoctorService doctorService) {
         this.doctorService = doctorService;
     }
+
     private static final Logger logger = LogManager.getLogger(DoctorController.class);
 
     @GetMapping("/doctor/{id}")
@@ -51,8 +54,16 @@ public class DoctorController {
     public ResponseEntity<DoctorDto> createDoctor(@RequestBody DoctorRequest request) {
         DoctorDto doctor = doctorService.createDoctor(request);
 
-        logger.info("doctors found");
+        logger.info("doctor created");
         return new ResponseEntity<>(doctor, HttpStatus.CREATED);
+    }
+
+    @PostMapping("/doctors")
+    public ResponseEntity<List<DoctorDto>> createDoctors(@RequestBody List<DoctorRequest> request) {
+        List<DoctorDto> doctors = request.stream().map(doctorService::createDoctor).toList();
+
+        logger.info("doctors created");
+        return new ResponseEntity<>(doctors, HttpStatus.CREATED);
     }
 
     @PutMapping("/doctor/{id}")

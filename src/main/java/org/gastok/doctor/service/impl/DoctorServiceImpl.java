@@ -42,7 +42,7 @@ public class DoctorServiceImpl implements DoctorService {
         final List<DoctorDto> converted = entities
                 .stream()
                 .map(doctorConverter::toDto)
-                .collect(Collectors.toList());
+                .toList();
 
         return DoctorListResponse.builder().doctors(converted).build();
 
